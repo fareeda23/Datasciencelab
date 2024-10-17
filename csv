@@ -1,0 +1,21 @@
+import csv
+
+# Corrected code to read from a tab-delimited file
+with open('tab_delimited_stock_price.txt', 'r') as f:  # Use 'r' for reading text files
+    reader = csv.reader(f, delimiter='\t')  # Corrected 'delimeter' to 'delimiter'
+    for row in reader:
+        date = row[0]
+        symbol = row[1]
+        closing_price = float(row[2])
+        # Process each row (assuming there's a 'process' function)
+        process(date, symbol, closing_price)
+
+# Corrected code to read from a colon-delimited file
+with open('colon_delimited_stock_price.txt', 'r') as f:  # Use 'r' for reading text files
+    reader = csv.DictReader(f, delimiter=':')  # Corrected 'dltreader' to 'DictReader'
+    for row in reader:
+        date = row['date']  # Corrected quotes and key names
+        symbol = row['symbol']
+        closing_price = float(row['closing_price'])
+        # Process each row (assuming there's a 'process' function)
+        process(date, symbol, closing_price)
