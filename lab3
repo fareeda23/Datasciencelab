@@ -1,0 +1,27 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load the data from the Excel file
+file_path = 'emp.xlsx'
+data = pd.read_excel(file_path)
+
+# Print the data
+print(data)
+
+# Calculate mean, median, and average age
+mean = data['salary'].mean()
+median = data['salary'].median()
+avg_age = data['Age'].mean()
+
+# Plot the salary graph
+plt.plot(data.index, data['salary'], marker='.', color='Red', label='Salary')
+plt.axhline(mean, color='Green', linestyle='--', label='Avg. Salary')
+
+# Add labels and title
+plt.legend(loc='upper center')
+plt.xlabel('Employee Index')
+plt.ylabel('Salary')
+plt.title('Employee Salary Graph')
+
+# Show the plot
+plt.show()
