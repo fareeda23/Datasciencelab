@@ -1,0 +1,15 @@
+def get_domain(email_address):
+    return email_address.lower().split("@")[-1]  # Changed from "e" to "@"
+
+# Read email addresses from the file and count domains
+with open('email_address.txt', 'r') as f:
+    domain_counts = {}
+    for line in f:
+        domain = get_domain(line.strip())
+        if domain in domain_counts:
+            domain_counts[domain] += 1
+        else:
+            domain_counts[domain] = 1
+
+# Print the domain counts
+print(domain_counts)
