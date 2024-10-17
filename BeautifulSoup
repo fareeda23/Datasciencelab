@@ -1,0 +1,28 @@
+from bs4 import BeautifulSoup
+import requests  # Corrected to 'requests' (not 'request')
+
+# Fetch the HTML content from the website
+html = requests.get('http://www.example.com')  # Fixed missing quotes in URL
+
+# Parse the HTML using BeautifulSoup with the 'html5lib' parser
+soup = BeautifulSoup(html.content, 'html5lib')  # Corrected to 'html.content'
+
+# Find the first paragraph in the HTML content
+first_paragraph = soup.find('p')  # Locate the first <p> tag
+
+# Check if a paragraph was found before proceeding
+if first_paragraph:
+    # Extract the text of the first paragraph
+    first_paragraph_text = first_paragraph.text
+    first_paragraph_words = first_paragraph_text.split()  # Split the text into words
+
+    # Access the 'id' attribute of the first paragraph, if it exists
+    first_paragraph_id = first_paragraph.get('id')
+    first_paragraph_id2 = first_paragraph.get('id')
+
+    # Print the extracted information
+    print("First Paragraph Text:", first_paragraph_text)
+    print("First Paragraph Words:", first_paragraph_words)
+    print("First Paragraph ID:", first_paragraph_id)
+else:
+    print("No paragraph found.")
