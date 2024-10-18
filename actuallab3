@@ -1,0 +1,47 @@
+import numpy as np
+array1=np.array([[1,2,3],[4,5,6]])
+array2=np.array([[7,8,9],[10,11,12]])
+print("Array1:")
+print(array1)
+print("\n Array2:")
+print(array2)
+
+array_addition=array1+array2
+print("\n addition of array1 and array2")
+print(array_addition)
+
+array_subtraction=array1-array2
+print("\n subtraction of array 1 and array 2")
+print(array_subtraction)
+
+array_multiplication=array1*array2
+print("\n element_wise multiplication of array 1 and array 2:")
+print(array_multiplication)
+
+array_transpose=np.transpose(array1)
+print("\n transpose of array1")
+print(array_transpose)
+
+array_reshaped=array1.reshape(3,2)
+print("\n reshaped array1(from(2*3 to 3*2)):")
+print(array_reshaped)
+
+mean_array1=np.mean(array1)
+print("\n mean of array1:")
+print(mean_array1)
+
+median_array1=np.mean(array1)
+print("\n median of array1:")
+print(median_array1)
+
+min_value=np.min(array1)
+max_value=np.max(array1)
+print("\n Min and max of array1")
+print("Min:",min_value)
+print("Max:",max_value)
+
+std_deviation=np.std(array1)
+print("\n standard deviation of array1")
+print(std_deviation)
+
+
