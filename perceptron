@@ -1,0 +1,12 @@
+import numpy as np
+def step_function(x:float)->float:
+    return 1.0 if x>=0 else 0.0
+def perceptron_output(weights,bias,x)->float:
+    calculation=np.dot(weights,x)+bias
+    return step_function(calculation)
+weights=[2,2]
+bias=-3
+print (perceptron_output(weights,bias,[1,1]))
+print (perceptron_output(weights,bias,[0,1]))
+print (perceptron_output(weights,bias,[1,0]))
+print (perceptron_output(weights,bias,[0,0]))
