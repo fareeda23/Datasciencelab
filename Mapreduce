@@ -1,0 +1,32 @@
+import csv
+from mrjob.job import MRJob
+class MRStudentGrades(MRJob):
+    def mapper(self,_,line):
+        reader=csv.reader([line])
+        for data in reader:
+            name=data[0].strip()
+            marks=list(map(int,data[1:]))
+            average=sum(marks)/len(marks)
+            yield name,average
+            
+    
+        def reducer(self,key,values):
+            average=list(values)[0]
+    
+            if average>=90:
+                grade='A+'
+            elif average>=80:
+                grade='A'
+            elif average>=70:
+                grade='B+'
+            elif average>=60:
+                grade='B'
+            elif average>=50:
+                grade='C+'
+            elif average>=40:
+                grade='C'
+            else:
+                grade='F'
+            yield key,grade
+if __name__=='main':
+        MRStudentGrades.run()
